@@ -1,0 +1,8 @@
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-web')
+
+    implementation "org.springframework.boot:spring-boot-starter-security"
+//    implementation "org.keycloak:keycloak-spring-boot-2-adapter"
+//    implementation "org.keycloak:spring-boot-container-bundle"
+    implementation "org.keycloak:keycloak-spring-boot-starter"
+}

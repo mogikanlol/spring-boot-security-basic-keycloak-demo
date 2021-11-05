@@ -1,0 +1,26 @@
+# HTTPS
+
+1) generate server keypair
+# CN - server
+keytool -genkeypair -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore serverkeystore.p12 -validity 365 -alias serverkey
+
+2) export server cert
+keytool -keystore serverkeystore.p12 -storetype pkcs12 -exportcert -file servercert.crt -rfc -alias serverkey
+
+3) generate and import client cert into client truststore
+keytool -importcert -file servercert.crt -keystore clienttruststore.p12 -alias servercert
+
+
+
+# Auth
+
+2) generate client keypair
+СТ - client
+keytool -genkeypair -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore clientkeystore.p12 -validity 365 -alias clientkey
+
+3) export client cert
+keytool -keystore test-clientkeystore.p12 -storetype pkcs12 -exportcert -file test-clientcert.crt -rfc -alias test-clientkey
+
+4) generate and import client cert into server truststore
+keytool -importcert -file test-clientcert.crt -keystore test-servertruststore.p12 -alias test-clientcert
+

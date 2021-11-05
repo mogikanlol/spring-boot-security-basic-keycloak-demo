@@ -1,0 +1,3 @@
+rootProject.name = 'spring-boot-security-basic-keycloak-demo'
+
+include 'client-app', 'server-app'

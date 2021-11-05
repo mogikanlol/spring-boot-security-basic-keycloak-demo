@@ -1,0 +1,24 @@
+server:
+  port: 8443
+  ssl:
+    key-store: classpath:serverkeystore.p12
+    key-store-password: changeit
+    keyStoreType: PKCS12
+
+#logging:
+#  level:
+#    ROOT: DEBUG
+
+keycloak:
+  ssl-required: external
+  principal-attribute: preferred_username
+
+  auth-server-url: http://localhost:8081/auth
+  realm: demo
+  public-client: false
+  resource: demo-client
+  credentials:
+    secret: f99f7406-2802-4e4a-92cc-31d39ea80a56
+
+  bearer-only: true
+  enable-basic-auth: true
